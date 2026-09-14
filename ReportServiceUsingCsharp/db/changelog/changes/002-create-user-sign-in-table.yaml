@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-user-sign-in-table
+      author: sverdlov
+      changes:
+        - createTable:
+            tableName: user_sign_in
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: signed_in_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_user_sign_in_user_id
+            tableName: user_sign_in
+            columns:
+              - column:
+                  name: user_id

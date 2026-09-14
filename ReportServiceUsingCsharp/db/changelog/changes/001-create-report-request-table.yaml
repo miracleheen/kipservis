@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-report-request-table
+      author: sverdlov
+      changes:
+        - createTable:
+            tableName: report_request
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: period_from
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: period_to
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: timeout_ms
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: result_count_sign_in
+                  type: integer
+              - column:
+                  name: completed_at
+                  type: timestamp

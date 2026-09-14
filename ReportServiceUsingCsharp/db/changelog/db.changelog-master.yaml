@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-report-request-table.yaml
+  - include:
+      file: db/changelog/changes/002-create-user-sign-in-table.yaml
+  - include:
+      file: db/changelog/changes/003-seed-user-sign-in-data.yaml
